@@ -1,32 +1,26 @@
 package com.videosite.videosite.VideoMetadata;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Generated;
+
+import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "videoMetadata")
 public class VideoMetadata {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String thumbnailUrl;
     private String title;
     private Integer videoLength;
     private String link;
     private String genre;
+    private String description;
+    private Date createdAt;
+    private Date updatedAt;
 
-    public VideoMetadata() {
-    }
-
-    public VideoMetadata(Long id, String thumbnailUrl, String title, Integer videoLength, String link, String genre) {
-        this.id = id;
-        this.thumbnailUrl = thumbnailUrl;
-        this.title = title;
-        this.videoLength = videoLength;
-        this.link = link;
-        this.genre = genre;
-    }
-
-    // getters and setters
 }
